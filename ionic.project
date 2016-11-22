@@ -1,0 +1,12 @@
+{
+  "name": "ShopNow",
+  "app_id": "64647dd5",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

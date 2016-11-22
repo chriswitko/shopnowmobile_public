@@ -1,0 +1,10 @@
+<div ng-if="viewOptions.data_load_state === DATA_LOAD_STATE.loading">
+  <div ng-if="viewOptions.loading_mode === LOADING_MODE.init" class="no-results">
+    <p><ion-spinner></ion-spinner></p>
+    <p ng-if="message.length"><br/>{{message}}</p>
+  </div>
+
+  <div ng-if="viewOptions.loading_mode === LOADING_MODE.resume" class="progress-line">
+    <ion-spinner></ion-spinner>
+  </div>
+</div>

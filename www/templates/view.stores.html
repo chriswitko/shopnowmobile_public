@@ -1,0 +1,56 @@
+<ion-view view-title="Stores" name="stores-view">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear color-primary" ui-sref="shopnow.search" ng-if="!isOffline"><i class="ion-ios-search-strong"></i> Search</a>
+  </ion-nav-buttons>   
+  
+  <ion-content lazy-scroll class="scroll-bg top-banners has-header" scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <ion-refresher ng-if="!isOffline" pulling-text="Pull to refresh..." on-refresh="doPullToRefresh()"></ion-refresher>
+    <!--<ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container2">
+            <img ng-src="https://shopnowapp.com/assets/img/banners/banner_general.jpg" style="width:100%;display:block;"/>
+          </section>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container2">
+            <img ng-src="https://shopnowapp.com/assets/img/banners/banner_general.jpg" style="width:100%;display:block;"/>
+          </section>
+        </div>
+      </ion-slide>
+    </ion-slide-box>-->
+    <a class="item item-icon-right item-blue" href ui-sref="shopnow.recommended" ng-if="totalRecommended">
+      <span class="color-primary">Recommended for you</span>
+      <p class="small">Discover and follow more brands you love</p>
+      <span class="icon"><div class="badge-recommend" ng-if="totalRecommended">{{totalRecommended < 10 ? totalRecommended : '10+'}}</div> <i class="ion-chevron-right icon-accessory"></i></span>
+    </a>
+
+    <progress-bar view-options="viewOptions" message="Getting data..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-ios-list-outline" title="No stores yet" message="Your favourite stores will appear here."></empty-space>
+          
+    <sn-intro-box ng-if="items.length" id="stores-intro" title="Connect your profile with Facebook" text="Each time you will start following new stores or brand on Facebook we will automatically add it to your ShopNow app. From this moment on, you can start checking latest posts, ask for discounts and receive great offers."></sn-intro-box>
+    
+    <div class="list-area">
+      <div class="group-area">
+        <div ng-if="viewOptions.shared.length">
+          <div class="item item-divider">Shared by Friends</div>
+          <div class="list mb0">
+            <div sn-page-header state-name="shopnow.stores.preview" page="page" follow-link="true" unshare-action="true" ng-repeat="page in viewOptions.shared"></div>
+          </div>
+        </div>
+        
+        <div ng-if="viewOptions.items.length">
+          <div class="item item-divider">All Your Stores</div>
+          <div class="list mb0">
+            <div sn-page-header state-name="shopnow.stores.preview" page="page" follow-link="true" ng-repeat="page in viewOptions.items"></div>
+            <button-more view-options="viewOptions" on-click="doMore()"></button-more>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+  </ion-content>
+</ion-view>

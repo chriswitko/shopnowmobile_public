@@ -1,0 +1,12 @@
+<div class="item flex-item" href ng-click="onInternalClick(user.id)">
+	<div class="flex-item-content">
+		<div class="flex-item-avatar">
+			<img class="img-circle" ion-img-cache image-lazy-src="https://graph.facebook.com/{{user.id||user.facebook_id}}/picture?type=square&width=200&height=200">
+		</div>
+		<div class="flex-item-body wrap">
+			{{user.name || user.email }}
+			<p ng-if="user.count_subscriptions"><small>You are subscribed to {{user.count_subscriptions}} stores</small></p>
+			<p ng-if="!user.count_subscriptions"><small>{{user.email}}</small></p>
+		</div>
+	</div>
+</div>

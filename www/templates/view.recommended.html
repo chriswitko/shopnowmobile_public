@@ -1,0 +1,23 @@
+<ion-view view-title="Recommended for you" name="suggested-view">
+  <ion-content lazy-scroll class="scroll-bg" scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <ion-refresher ng-if="!isOffline" pulling-text="Pull to refresh..." on-refresh="doPullToRefresh()"></ion-refresher>
+
+    <progress-bar view-options="viewOptions" message="Getting data..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-wand" title="No stores yet" message="We couldn't load more recommended stores. Try to search for your favourite stores."></empty-space>
+          
+    <sn-intro-box ng-if="items.length" id="stores-intro" title="Connect your profile with Facebook" text="Each time you will start following new stores or brand on Facebook we will automatically add it to your ShopNow app. From this moment on, you can start checking latest posts, ask for discounts and receive great offers."></sn-intro-box>
+    
+    <div class="list-area">
+      <div class="group-area">
+        <div ng-if="viewOptions.items.length">
+          <div class="list mb0">
+            <div sn-page-header state-name="shopnow.stores.preview" page="page" follow-link="true" ng-repeat="page in viewOptions.items"></div>
+            <button-more ng-if="viewOptions.items.length >= 20" view-options="viewOptions" on-click="doMore()"></button-more>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="Saved" name="saved-view">
+  <ion-content lazy-scroll class="scroll-bg has-header" scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <ion-refresher ng-if="!isOffline" pulling-text="Pull to refresh..." on-refresh="doPullToRefresh()"></ion-refresher>
+
+    <progress-bar view-options="viewOptions" message="Getting your saved posts..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-ios-heart" title="No saved posts yet" message="Your favourite posts will appear here."></empty-space>
+
+    <div sn-intro-box ng-if="viewOptions.items.length" id="saved-intro" title="Saved Posts" text="You can save and bookmark some of the things you see on ShopNow to view later, like the links or products from your newsfeed or stores."></div>
+       
+    <div>
+      <ion-list>
+        <div sn-post post="post" state-name="shopnow.saved.preview" is-compact-mode="isCompactMode" follow-link="followLink" class="shopnow-post" ng-repeat="post in viewOptions.items"></div>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

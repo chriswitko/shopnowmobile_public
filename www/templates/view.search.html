@@ -1,0 +1,18 @@
+<ion-view view-title="Search" name="search-view">
+  <ion-search-bar filter="search" placeholder="Search for stores..." hello="doSearch()"></ion-search-bar>
+
+  <ion-content lazy-scroll class="scroll-bg has-header has-subheader has-search-bar" scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+  
+    <progress-bar view-options="viewOptions" message="Searching..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-ios-search-strong" message="What are you looking for?"></empty-space>
+
+    <div ng-if="viewOptions.data_load_state === DATA_LOAD_STATE.loaded && viewOptions.items.length">
+      <div class="item item-divider">Search results</div>
+      <ion-list class="list mb0">
+        <div bindonce sn-page-header page="page" state-name="shopnow.stores.preview" follow-link="true" ng-repeat="page in viewOptions.items track by $index | limitTo: limit"></div>
+      </ion-list>
+    </div>
+
+  </ion-content>
+</ion-view>

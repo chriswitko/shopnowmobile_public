@@ -1,0 +1,35 @@
+<ion-view view-title="{{page.name || page.username}}" name="page-view">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="showActions()"><i class="icon icon-accessory ion-ios-more"></i></button>
+  </ion-nav-buttons>   
+  <ion-content lazy-scroll class="has-header scroll-bg" has-header="true" has-footer="true" has-tabs="false" direction="y" scrollbar-y="false">
+    <ion-refresher on-refresh="doPullToRefresh()"></ion-refresher>
+
+    <div class="clearfix ac pt20 pb20 bg-white wide-page-header mb5">
+      <div class="clearfix ac mb10 profile-avatar">
+        <img height="100" class="img-circle" ion-img-cache image-lazy-src="https://graph.facebook.com/{{page.facebook_id}}/picture?type=square&width=200&height=200">
+        <div class="i-badge-area" ng-if="page.is_activated">
+          <i class="i-badge i-badge-active ion-checkmark-circled"></i>
+        </div>
+      </div>
+      <div class="clearfix ac">
+        <a href ng-click="ctaAction()" ng-class="ctaClass" class="button button-lg w70p">{{ctaTitle}}</a>
+        <p class="small mt5 mb0" ng-if="page.is_subscribed && !page.is_requested && !page.insights.targeted_offers">Looking for a discount? Click to receive one.</p>
+        <p class="small mt5 mb0" ng-if="page.is_requested">Your request has been sent</p>
+        <p class="small mt5 mb0" ng-if="page.is_subscribed && page.insights.targeted_offers">Your have {{page.insights.targeted_offers}} active {{page.insights.targeted_offers === 1 ? 'offer' : 'offers'}}</p>
+      </div>
+    </div>
+
+    <progress-bar view-options="viewOptions" message="Getting posts..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-compass" title="No posts yet" message="Here you will find all Facebook posts from this store."></empty-space>
+          
+    <div ng-if="viewOptions.items.length">
+      <div class="item item-divider mt0">Latest posts from Facebook</div>
+      <ion-list>
+        <div sn-post post="post" state-name="shopnow.stores.preview" is-compact-mode="true" follow-link="false" class="shopnow-post" ng-repeat="post in viewOptions.items"></div>
+      </ion-list>
+    </div>
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,25 @@
+<ion-view view-title="Sign-In" name="login-view" hide-nav-bar="true">
+  <ion-content scroll="false">
+    <section class="login-container">
+      <div class = "col header text-center">
+        <img src="./img/logo.png" width="64" class="logo box rotate" ng-class="{'animate': !hello}" />
+      </div>
+      <div class="col text-center mt50 pb20">
+        <h4 class="login-subtext fs25 color-facebook-accent">Never miss great offers & product updates from the brands you love</h4>
+      </div>
+      <div class="col button-row text-center mt20">
+        <a href ng-click="fbLogin()" class="button button-more button-lg w70p">Continue with <span class="fw600">Facebook</span></a>
+        <!--<p class="small mt10">or</p>-->
+        <!--<p class="small"><a class="color-text-accent" href="#/login_email">Login with email</a></p>-->
+        <div class="mb10 mt10" style="height: 30px">
+          <ion-spinner ng-if="isLoading"></ion-spinner>
+        </div>
+      </div>
+      <div class="col button-row text-center">
+        <p><a class="color-text-accent" href="https://shopnowapp.com/terms" target="_system">Terms &amp; Privacy</a></p>
+        <p><a class="color-text-accent" href="https://shopnowapp.com/help" target="_system">Need Help?</a></p>
+      </div>
+      <p class="mb0 p5 small color-text-accent align-center">Version: {{viewOptions.version}}</p>
+    </section>
+  </ion-content>
+</ion-view>

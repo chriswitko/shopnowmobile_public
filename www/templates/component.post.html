@@ -1,0 +1,16 @@
+<div class="item-border feed-post">
+  <div sn-page-header state-name="{{stateName}}" ng-if="!isCompactMode" page="post.from" follow-link="true"></div>
+  <div class="item item-body pb10 pt20" ng-class="{'item-no-border item-padded':!isCompactMode}">
+    <a log-event="page;{{post.from.facebook_id}};click|post;{{post.id}};click" href ng-click="onClick()">
+      <p class="small mb5 mt0">Posted <span am-time-ago="post.created_time"></span></p>
+      <p class="mt0" ng-if="post.message.length" ng-bind-html="post.message | characters:140 | linky:'_system'"></p>
+      <img log-event-code="post;{{post.id}};view" lazy-scroll-resize2="true" image-lazy-src="{{post.full_picture}}" class="full-image" ng-show="post.full_picture.length"/>
+      <div class="post-actions">
+        <p class="mt10">
+          <a class="mb5 color-text-accent button button-stable button-small" log-event="page;{{post.from.facebook_id}};click|post;{{post.id}};click" href ng-click="onClick()"><i class="ion-earth"></i> Go to Website</a>
+          <a class="mb5 button button-stable button-small" ng-class="{'color-facebook-accent': post.is_saved, 'color-text-accent': !post.is_saved}" log-event="page;{{post.from.facebook_id}};saved|post;{{post.id}};saved" href ng-click="saveUnsave()"><i ng-class="{'ion-ios-heart': post.is_saved, 'ion-ios-heart-outline': !post.is_saved}"></i> {{post.is_saved ? 'Saved' : 'Save'}}</a>
+        </p> 
+      </div>
+    </a>
+  </div>
+</div>

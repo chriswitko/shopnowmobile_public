@@ -1,0 +1,105 @@
+<ion-view view-title="Welcome" name="onboarding-view" hide-back-button="true" hide-nav-bar="true">
+  <ion-content padding="false" scroll="false" overflow-scroll="false">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container">
+            <div class = "col header text-center">
+              <img src="./img/logo.png" class = "logo" width="80" />
+            </div>
+            <div class="col text-center mt50">
+              <h4 class="login-subtext fs30 color-facebook-accent mb0 pb5">Welcome to ShopNow</h4>
+              <p class="small-subtext p10"><a class="color-text-accent" href>Never miss great offers & products updates from brands you love</a></p>
+            </div>
+          </section>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container">
+            <div class="col text-center mt50">
+              <h5 class="login-subtext fs30 color-facebook-accent mb0 pb5">Connect with Brands you love</h5>
+              <p class="small-subtext p10"><a class="color-text-accent" href>Easily find brands and stores you love, or just link your Facebook profile.</a></p>
+            </div>
+          </section>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container">
+            <div class="col text-center mt50">
+              <h5 class="login-subtext fs30 color-facebook-accent mb0 pb5">Discover product updates, exclusives, sales and events</h5>
+              <p class="small-subtext p10"><a class="color-text-accent" href>Do not loose time on searching offers & products updates, we will do it for you.</a></p>
+            </div>
+          </section>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container">
+            <div class="col text-center mt50">
+              <h5 class="login-subtext fs30 color-facebook-accent mb0 pb5">Receive discounts and make savings on your shopping</h5>
+              <p class="small-subtext p10"><a class="color-text-accent" href>Don't ask for discounts anymore, just tap one button to get discounts you're looking for.</a></p>
+            </div>
+          </section>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box">
+          <section class="slider-container" ng-if="!is_ready && user.access_token">
+            <div class="col text-center mt50">
+              <h5 class="login-subtext fs30 color-facebook-accent mb0 pb5">Getting data from Facebook...</h5>
+              <p class="small-subtext p10"><a class="color-text-accent" href>We are getting your Facebook likes now to build your personal profile.</a></p>
+              <div class="mb10 mt10" style="height: 30px">
+                <ion-spinner></ion-spinner>
+              </div>
+              <div class="mt10">
+                <p class="color-text-accent" ng-if="count_subscriptions">Connected to {{count_subscriptions}} brands, please wait...</p>
+                <p class="color-text-accent" ng-if="!count_subscriptions">Connecting to brands. Please wait...</p>
+                <p class="color-text-accent small">Depends on number of your likes on Facebook,<br/>it can take up to 1 minute to complete.</p>
+              </div>
+            </div>
+            <div class="slider-bottom">
+              <a href class="button button-block button-more button-lg" disabled>Get Started</a>
+            </div>
+          </section>
+          <section class="slider-container" ng-if="!is_ready && !user.access_token">
+            <div class="col text-center mt50">
+              <h5 class="login-subtext fs30 color-facebook-accent mb0 pb5">Searching for stores &amp; offers...</h5>
+              <div class="mb10 mt10" style="height: 30px">
+                <ion-spinner></ion-spinner>
+              </div>
+              <div class="mt10">
+                <p class="color-text-accent" ng-if="count_subscriptions">Connected to {{count_subscriptions}} stores, please wait...</p>
+                <p class="color-text-accent" ng-if="!count_subscriptions">Sending data. Please wait...</p>
+              </div>
+            </div>
+            <div class="slider-bottom">
+              <a href class="button button-block button-more button-lg" disabled>Get Started</a>
+            </div>
+          </section>
+          <section class="slider-container" ng-if="is_ready">
+            <div class="col text-center mt50">
+              <div class="mb0 mt10" style="height: 50px">
+                <i class="ion-android-checkbox-outline color-text-accent" style="font-size:50px;"></i>
+              </div>
+              <h5 class="login-subtext fs30 color-facebook-accent mb0 pb5">Your profile is ready!</h5>
+              <p class="small-subtext p10" ng-if="!count_subscriptions"><a class="color-text-accent" href>Thank you. Click button Get Started below and start looking for best offers.</a></p>
+              <p class="small-subtext p10" ng-if="count_subscriptions"><a class="color-text-accent" href>Congratulations!<br/>You are now connected with <strong>{{count_subscriptions}}</strong> brands.</a></p>
+              <div class="row row-center logo-gallery" ng-if="brands.length">
+                <div class="col-25 col-padded" ng-repeat="brand in brands | limitTo: 8 track by $index">
+                  <img class="img-rounded" ng-src="https://graph.facebook.com/{{brand.facebook_id||brand.id}}/picture?type=square&width=200&height=200" width="100%"/>
+                  <p class="wrap small">{{brand.name}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="slider-bottom">
+              <a href ng-click="getStarted()" class="button button-block button-more button-lg">Get Started</a>
+            </div>
+          </section>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    
+  </ion-content>
+</ion-view>

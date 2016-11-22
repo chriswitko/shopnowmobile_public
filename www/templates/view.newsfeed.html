@@ -1,0 +1,24 @@
+<ion-view view-title="Discover" name="newsfeed-view">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear color-primary" ng-click="inviteFriends()" ng-if="!isOffline">Invite Friends</button>
+  </ion-nav-buttons>   
+  
+  <ion-content class="scroll-bg" lazy-scroll scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <ion-refresher ng-if="!isOffline" pulling-text="Pull to refresh..." on-refresh="doPullToRefresh()"></ion-refresher>
+    
+    <progress-bar view-options="viewOptions" message="Preparing your Feed..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-compass" title="No posts yet" message="Here you will find all Facebook posts from stores you love."></empty-space>
+
+    <div sn-intro-box ng-if="viewOptions.items.length" id="offers-intro" title="Welcome!" text="Below you will find posts from stores you already love. Discover product updates, exclusives, sales and events."></div>
+        
+    <div>
+      <ion-list>
+        <div sn-post post="post" state-name="shopnow.newsfeed.preview" is-compact-mode="isCompactMode" follow-link="true" class="shopnow-post" ng-repeat="post in viewOptions.items"></div>
+        <button-more ng-if="viewOptions.items.length" view-options="viewOptions" on-click="doMore()"></button-more>
+      </ion-list>
+    </div>
+  </ion-content>            
+
+
+</ion-view>

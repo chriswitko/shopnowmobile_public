@@ -1,0 +1,17 @@
+<div class="item flex-item" href animation="slide-left-right">
+  <div class="flex-item-content">
+    <div class="flex-item-avatar" ng-click="onClick(stateName)">
+      <img class="img-circle" ion-img-cache image-lazy-src="https://graph.facebook.com/{{page.facebook_id}}/picture?type=square&width=80&height=80">
+      <div class="i-badge-area" ng-if="page.is_activated">
+        <i class="i-badge i-badge-active ion-checkmark-circled"></i>
+      </div>
+    </div>
+    <div class="flex-item-body wrap" ng-click="onClick(stateName)">
+      {{page.name || page.username}}
+      <p ng-if="page.insights.targeted_offers && page.is_subscribed" class="mt3"><span class="badge-head" style="{{page.offers.data[0].badge.length ? 'border: 1px solid ' + page.offers.data[0].badge_color || '#42A5F5' + ';color: ' + page.offers.data[0].badge_color || '#42A5F5' + ';': 'border: 1px solid #42A5F5;color: #42A5F5'}}"><ng-pluralize ng-if="!page.offers.data[0].badge.length" count="page.insights.targeted_offers" when="{'1': '{} offer', 'other': '{} offers'}"></ng-pluralize><span style="{{page.offers.data[0].badge.length ? 'color: ' + page.offers.data[0].badge_color || '#42A5F5' + ';': 'color: #42A5F5'}}" ng-if="page.offers.data[0].badge.length" ng-bind="page.offers.data[0].badge"></span></span></p>
+      <p ng-if="!page.is_subscribed" class="color-text-accent"><small>Subscribe to receive offers</small></p>
+    </div>
+    <div ng-if="page.is_subscribed" class="flex-item-action" ng-click2="showActions(page)"><i class="icon ion-chevron-right"></i></div>
+    <div ng-if="!page.is_subscribed" class="flex-item-action" ng-click="subscribe(page)"><span class="button-plus">&plus;</span></div>
+  </div>
+</div>

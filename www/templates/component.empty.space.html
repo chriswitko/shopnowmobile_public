@@ -1,0 +1,7 @@
+<div ng-if="viewOptions.data_load_state === DATA_LOAD_STATE.loaded && ((!viewOptions.items[0] && !viewOptions.items.length) || (viewOptions.items && !viewOptions.items[0]))" class="no-results">
+  <div ng-if="icon.length" class="clearbox empty-icon">
+    <i ng-class="icon"></i>
+  </div>
+  <p ng-if="message.length" class="mt20" style="line-height: 24px;">{{message}}</p>
+  <p ng-if="title.length" class="small strong mt10">{{title}}</p>
+</div>

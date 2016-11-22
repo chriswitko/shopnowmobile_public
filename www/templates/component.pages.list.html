@@ -1,0 +1,12 @@
+<div class="list-area">
+  <div class="group-area">
+    <div class="" ng-repeat="(key, value) in foryou">
+      <div class="item item-divider" ng-if="key === '0'">Expires soon</div>
+      <div class="item item-divider" ng-if="key !== '0'">For You</div>
+      <div class="list mb0" ng-if="value.length">
+        <div bindonce sn-page-header state-name="shopnow.offers.preview" page="page" follow-link="true" show-offers-only="true" ng-repeat="page in value"></div>
+      </div>
+    </div>
+  </div>  
+</div>
+

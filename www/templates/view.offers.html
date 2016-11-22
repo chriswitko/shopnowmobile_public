@@ -1,0 +1,20 @@
+<ion-view view-title="{{viewOptions.total ? 'Offers (' + viewOptions.total + ')' : 'Offers'}}" name="offers-view">
+  <ion-content lazy-scroll class="scroll-bg" scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <ion-refresher ng-if="!isOffline" pulling-text="Pull to refresh..." on-refresh="doPullToRefresh()"></ion-refresher>
+    
+    <progress-bar view-options="viewOptions" message="Getting offers for you..."></progress-bar>
+
+    <empty-space view-options="viewOptions" icon="ion-ios-chatboxes-outline" title="No offers yet" message="Here you will find all offers and discounts from stores you love"></empty-space>
+
+    <sn-intro-box ng-if="total" id="offers-intro" title="Offers for You" text="All your offers, discounts and promo codes in one place, only from brands you like, With our partners we will prepare special <strong>birthday offers just for you</strong>! But in the mean time if you are looking for discount, just click <strong>Ask for Discount</strong> and we will deliver it to you."></sn-intro-box>
+    
+    <div class="list-area" ng-if="viewOptions.items.length">
+      <div class="group-area">
+        <div class="item item-divider">For You</div>
+        <div class="list mb0">
+          <div sn-page-header state-name="shopnow.offers.preview" page="page" follow-link="true" show-offers-only="true" ng-repeat="page in viewOptions.items"></div>
+        </div>
+      </div>  
+    </div>
+  </ion-content>
+</ion-view>

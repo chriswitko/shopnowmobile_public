@@ -1,0 +1,12 @@
+<ion-modal-view class="ion-nifty-modal">
+	<div class="ion-modal-content-custom">
+		<ion-content class="padding" direction="y" scrollbar-y="false">
+			<div class="clearfix mt20">
+				<p align="center"><img class="img-avatar" ng-src="https://graph.facebook.com/{{page.facebook_id}}/picture?type=normal" width="50"></p>
+				<h4 align="center" class="mb0 pb0 padding"><span>THANK YOU!</span></h4>
+				<h4 align="center" class="mt0 slim padding">You are now subscribed to <strong>{{page.name}}</strong></h4>
+				<div class="clearfix mt0"><button class="button button-small button-full button-positive btn-cta-static mt20" ng-click="closeModal()">Close</button></div>
+			</div>
+		</ion-content>
+	</div>
+</ion-modal-view>

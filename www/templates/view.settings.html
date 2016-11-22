@@ -1,0 +1,42 @@
+<ion-view view-title="Settings" name="settings-view">
+  <ion-content class="scroll-bg" scroll-event-interval="5" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <ion-refresher ng-if="!isOffline" pulling-text="Pull to refresh..." on-refresh="doPullToRefresh()"></ion-refresher>
+
+    <progress-bar view-options="viewOptions"></progress-bar>
+
+    <!--<empty-space view-options="viewOptions" icon="ion-wifi" title="Please try again" message="No Internet Connection"></empty-space>-->
+
+    <ion-list ng-if="!isOffline">
+      <div class="col ac mt10">
+        <img class="img-circle" ion-img-cache ng-src="https://graph.facebook.com/{{viewOptions.user.facebook_id}}/picture?type=square&width=200&height=200" height="64" height="64">
+      </div>
+      <div class="col ac">
+        <strong>{{viewOptions.user.name || viewOptions.user.email }}</strong>
+        <p ng-if="viewOptions.user.count_subscriptions"><small>You are subscribed to {{viewOptions.user.count_subscriptions}} stores</small></p>
+      </div>      
+      
+      <div class="item item-divider" ng-if="viewOptions.user.access_token && viewOptions.user.email !== viewOptions.user.facebook_id">More</div>
+      <a class="item item-icon-right" href ng-click="openFriends()" ng-if="viewOptions.user.access_token && viewOptions.user.email !== viewOptions.user.facebook_id">
+        Friends <span ng-if="friends.length">({{friends.length}})</span>
+        <p class="small">Discover new stores with your friends</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+      <div class="item item-divider">About</div>
+      <a class="item" target="_system" href="https://shopnowapp.com/privacy">
+        Privacy Policy
+      </a>
+      <a class="item" target="_system" href="https://shopnowapp.com/terms">
+        Terms of Service
+      </a>
+      <div class="item" ng-if="viewOptions.version">
+        Version
+        <span class="pull-right">{{viewOptions.version}}</span>
+      </div>
+      <div class="item item-divider"></div>
+      <a log-event="user;{{viewOptions.user.facebook_id}};signout" class="item item-link" href ng-click="logout()">
+        Sign Out
+      </a>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+{
+  "name": "quick-ng-repeat",
+  "main": "quick-ng-repeat.js",
+  "homepage": "https://github.com/allaud/quick-ng-repeat",
+  "authors": [
+    "allaud"
+  ],
+  "description": "A much more quicker replacement for AngularJS ng-repeat directive",
+  "keywords": [
+    "quick",
+    "ng-repeat",
+    "angular",
+    "fast"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "61c4d50b5b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "61c4d50b5bd8a538078f87e1bb2a84cfbe8fa50f"
+  },
+  "_source": "git://github.com/allaud/quick-ng-repeat.git",
+  "_target": "*",
+  "_originalSource": "quick-ngrepeat",
+  "_direct": true
+}

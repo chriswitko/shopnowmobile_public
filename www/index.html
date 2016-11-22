@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>ShopNow</title>
+
+    <link rel="stylesheet" href="lib/ionic-filter-bar/dist/ionic.filter.bar.css">
+    <!-- compiled css output -->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="lib/ionic-nifty-modal/nifty.modal.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ionic-content-banner/dist/ionic.content.banner.css">
+    
+    <!-- ionic/angularjs js -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/ionic/js/ionic.js"></script>
+    <script src="lib/ionic/js/ionic-angular.js"></script>
+    
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/ios9patch.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers/base.js"></script>
+    <script src="js/controllers/shopnow.js"></script>
+    <script src="js/controllers/offers.js"></script>
+    <script src="js/controllers/stores.js"></script>
+    <script src="js/controllers/search.js"></script>
+    <script src="js/controllers/login.js"></script>
+    <script src="js/controllers/onboarding.js"></script>
+    <script src="js/controllers/newsfeed.js"></script>
+    <script src="js/controllers/page.js"></script>
+    <script src="js/controllers/saved.js"></script>
+    <script src="js/controllers/recommended.js"></script>
+    <script src="js/controllers/settings.js"></script>
+    <script src="js/filters.js"></script>
+
+    <!-- 3rd-party scripts -->
+    <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+    <script src="lib/moment/min/moment-with-locales.js"></script>
+    <script src="lib/moment-timezone/builds/moment-timezone-with-data-2010-2020.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-moment/angular-moment.min.js"></script>
+    <script src="lib/angular-barcode/dist/barcode.min.js"></script>
+    <script src="lib/angular-qrcode/angular-qrcode.js"></script>
+    <script src="lib/openfb/openfb.js"></script>
+    <script src="lib/openfb/ngopenfb.js"></script>
+    <script src="lib/localforage/dist/localforage.js"></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/angular-localforage/dist/angular-localForage.js"></script>    
+    <script src="lib/angular-bindonce/bindonce.min.js"></script>    
+    <script src="lib/quick-ng-repeat/quick-ng-repeat.js"></script>    
+    <script src="lib/lodash/lodash.min.js"></script>
+    <script src="lib/ng-lodash/build/ng-lodash.min.js"></script>
+    <script src="lib/ionic-content-banner/dist/ionic.content.banner.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script> 
+    <script src="lib/ionic-image-lazy-load/ionic-image-lazy-load.js"></script>
+    <script src="lib/squel/squel.min.js"></script>
+    <script src="js/helpers/ionic.ion.imagecachefactory.js"></script>
+    <script src="js/qrcode.js"></script>
+    <script src="lib/imgcache.js/js/imgcache.js"></script>
+    <script src="lib/ionic-img-cache/ionic-img-cache.js"></script>
+  </head>
+  <body ng-app="shopnow" ng-controller="ShopNowCtrl">
+    <ion-nav-bar back-button-type="button-icon" back-button-icon="ion-ios7-arrow-back">
+      <ion-nav-back-button class="button-clear"><i class="ion-chevron-left"></i> Back</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

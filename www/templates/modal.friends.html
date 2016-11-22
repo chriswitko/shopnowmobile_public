@@ -1,0 +1,28 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{options.title ? options.title : 'Friends'}}</h1>
+    <div class="buttons">
+      <button class="button button-clear icon" ng-click="closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content class="has-header" has-tabs="false" overflow-scroll="false" direction="y" scrollbar-y="false">
+    <div class="progress-line" ng-if="enableProgress">
+      <ion-spinner></ion-spinner>
+    </div>
+    <sn-intro-box ng-if="!isLoading && friends.length" id="friends-intro" title="Invite Friends" text="Disover more thanks to your friends. More friends using ShopNow, then more better recommedations for you."></sn-intro-box>
+    <a class="item item-icon-right strong" href ng-click="share()">
+      Invite your Friends
+      <i class="icon ion-chevron-right icon-accessory"></i>
+    </a>
+    <div class="clearfix" ng-if="!isLoading">
+      <div ng-if="friends.length" class="item item-divider">{{options.subtitle ? options.subtitle : 'Friends using ShopNow'}}</div>
+      <div ng-if="friends.length" sn-user-header user="user" ng-repeat="user in friends" show-action="showAction" my-click="onClick(user.id)"></div>
+    </div>
+    <div ng-if="!isLoading && !friends.length" class="no-results">
+      <p><img src="./img/emojis/1f61f.svg" style="height: 60px;"/></p>
+      <p>We could not find your friends on ShopNow</p>
+      <p class="mt20"><a href ng-click="refreshPermissions()" class="button button-positive button-small btn-radius-small min-w-30p">Refresh</a></p>
+    </div>
+  </ion-content>
+</ion-modal-view>

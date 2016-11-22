@@ -1,0 +1,19 @@
+<ion-view>
+	<ion-tabs class="tabs-icon-top">
+		<ion-tab title="Stores" icon="ion-ios-list-outline" href ui-sref="shopnow.stores" ng-click="doTap(0, 'shopnow.stores')">
+			<ion-nav-view name="stores@"></ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Discover" icon="ion-compass" href ui-sref="shopnow.newsfeed" ng-click="doTap(1, 'shopnow.newsfeed')">
+			<ion-nav-view name="newsfeed@"></ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Offers" icon="ion-ios-chatboxes-outline" href ui-sref="shopnow.offers" badge="availableOffersTotal" badge-style="badge-assertive" ng-click="doTap(2, 'shopnow.offers')">
+			<ion-nav-view name="offers@"></ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Saved" icon="ion-ios-heart-outline" href ui-sref="shopnow.saved" ng-click="doTap(3, 'shopnow.saved')">
+			<ion-nav-view name="saved@"></ion-nav-view>
+		</ion-tab>
+    <ion-tab title="Settings" icon="ion-ios-gear-outline" href ui-sref="shopnow.settings" ng-click="doTap(4, 'shopnow.settings')">
+			<ion-nav-view name="settings@"></ion-nav-view>
+		</ion-tab>
+	</ion-tabs>
+</ion-view>	

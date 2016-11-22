@@ -1,0 +1,34 @@
+{
+  "name": "HelloIonic",
+  "private": true,
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#master"
+  },
+  "dependencies": {
+    "ionic-filter-bar": "~1.1.1",
+    "moment-timezone": "~0.4.1",
+    "angular-moment": "~0.10.3",
+    "moment": "~2.10.6",
+    "angular-barcode": "~0.0.1",
+    "angular-qrcode": "monospaced/angular-qrcode#~6.1.3",
+    "openfb": "~0.5.0",
+    "ngstorage": "~0.3.10",
+    "fontawesome": "~4.4.0",
+    "ionic-nifty-modal": "*",
+    "lodash": "~3.10.1",
+    "ng-lodash": "~0.3.0",
+    "ionic-ion-horizontal-scroll-cards": "*",
+    "ionic-content-banner": "~1.0.1",
+    "linkifyjs": "~1.1.7",
+    "ngCordova": "~0.1.24-alpha",
+    "ionic-image-lazy-load": "ion-image-lazy-load#*",
+    "SVG-Loaders": "svg-loaders#~1.0.2",
+    "squel": "~4.2.3",
+    "angular-localforage": "~1.2.5",
+    "localforage": "~1.3.2",
+    "angular-bindonce": "~0.3.3",
+    "quick-ng-repeat": "quick-ngrepeat#*",
+    "ionic-img-cache": "^1.0.2",
+    "angular-resource": "^1.5.6"
+  }
+}

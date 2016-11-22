@@ -1,0 +1,37 @@
+<ion-view view-title="Sign-In" name="login-view" hide-nav-bar="true">
+  <ion-content scroll="false">
+    <section class="login-container">
+      <div class = "col header text-center">
+        <img src="./img/logo.png" width="64" class="logo" />
+      </div>
+      <div class="col text-center mt50 pb20">
+        <h4 class="login-subtext fs25 color-facebook-accent">Sign In</h4>
+      </div>
+      <div class="col button-row text-center mt20">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="email" placeholder="E-mail address" ng-model="user.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="user.password">
+          </label>
+        </div>
+
+        <a href ng-disabled="!user.email || !user.password" ng-click="emailLogin()" class="button button-more-email button-lg w70p">Login</a>
+        <p class="small mt10">or</p>
+        <a href ng-click="fbLogin()" class="button button-more button-lg w70p">Continue with <span class="fw600">Facebook</span></a>
+        <p class="small mt20"><a class="color-text-accent" href="#/register_email">Create new account</a></p>
+        <div class="mb10 mt10" style="height: 30px">
+          <ion-spinner ng-if="isLoading"></ion-spinner>
+        </div>
+      </div>
+      <div class="col button-row text-center"></div>
+      <div class="col button-row text-center"></div>
+      <div class="col button-row text-center"></div>
+      <div class="col button-row text-center"></div>
+      <div class="col button-row text-center"></div>
+      <div class="col button-row text-center"></div>
+      <div class="col button-row text-center"></div>
+    </section>
+  </ion-content>
+</ion-view>

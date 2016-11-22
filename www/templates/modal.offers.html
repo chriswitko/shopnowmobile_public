@@ -1,0 +1,45 @@
+<ion-modal-view class="coupons">
+  <ion-content scroll="false">
+    <div class="coupons-close-btn" ng-click="closeModal()"><a href style="color:white;font-size:18px;"><i class="icon ion-close-round"></i></a></div>
+    <div class="coupons-title" ng-click="closeModal()"><small>You have {{page.offers.data.length ? page.offers.data.length : 'no'}} active {{page.offers.data.length === 1 ? 'offer' : 'offers'}}</small></div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" class="coupons-bg" show-pager="{{page.offers.data.length > 1 ? true : false}}">
+      <ion-slide ng-repeat="offer in page.offers.data">
+        <div class="slider-box slider-scrolled" style="overflow-x:hidden;">
+          <section class="slider-container" style="position:relative;">
+						<div class="" style="position:absolute;width:100%;display:table;background:white;">
+							<div class="row mb10">
+								<div class="col-50">
+									<img class="logo img-circle" width="50" height="50" image-lazy-src="https://graph.facebook.com/{{page.facebook_id}}/picture?type=square&width=200&height=200">
+								</div>
+								<div class="col-50 alr col-center">
+									<div class="flex-item-action" ng-click="showActions(page)"><i class="icon icon-accessory ion-ios-more"></i></div>
+								</div>
+							</div>
+							<div class="row mb20">
+								<div class="col-50">
+									<p class="m0 strong wrap">{{page.name || page.username}}</p>
+								</div>
+								<div class="col-50 alr">
+									<p class="m0 color-text-accent"><i class="ion-clock"></i> <span class="color-text" am-time-ago="offer.expired_at"></span></p>
+								</div>
+							</div>
+						</div>
+            <ion-scroll zooming="false" direction="y" scrollbar-y="false" style="margin-top:100px;">
+              <div class="row mb20" ng-if="offer.message.length">
+                <p class="m0 body" ng-bind-html="offer.message + (offer.redemption_code ? ' &mdash; Use this code: <span class=\'txt--highlight\'>' + offer.redemption_code + '</span>' + (offer.link ? ' ' + offer.link : ''): '')"></p>
+              </div>
+              <div class="row" ng-if="offer.picture.length">
+                <div class="col p0">
+                  <img ng-click="ctaAction(offer)" log-event-code="offer;{{::offer._id}};view" log-event="offer;{{offer._id}};click|page;{{offer.page_id}};click" ng-click="onClick()" lazy-scroll-resize="false" image-lazy-src="{{::offer.picture}}" class="full-image img-responsive"/>
+                </div>
+              </div>
+            </ion-scroll>
+            <div class="coupon-cta">
+              <a href log-event="offer;{{offer._id}};open;view|page;{{offer.page_id}};click" ng-click="ctaAction(offer)" ng-class="ctaClass" class="button button-lg button-more button-full" style="width:100%;">Shop Now</a>
+            </div>
+          </section>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-modal-view>

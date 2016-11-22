@@ -1,0 +1,18 @@
+<div ng-if="isEnabled">
+  <div class="item ac" ng-click="doMore()" ng-if="!isOffline">
+    <div class="progress-line" ng-if="viewOptions.loading_mode === LOADING_MODE.more && viewOptions.data_load_state === DATA_LOAD_STATE.loading">
+      <ion-spinner></ion-spinner>
+    </div>
+    <div ng-if="viewOptions.data_load_state !== DATA_LOAD_STATE.loading">More</div>
+  </div>
+  <div class="item ac scroll-bg" ng-click="doMore()" ng-if="isOffline">
+    <p><i class="ion-android-refresh" style="font-size:25px;"></i></p>
+    <p class="small">No Internet Connection</p>
+  </div>
+</div>
+<div ng-if="!isEnabled">
+  <div class="item ac scroll-bg" ng-click="doMore()">
+    <p><i class="ion-android-refresh" style="font-size:25px;"></i></p>
+    <p class="small">The End</p>
+  </div>
+</div>
